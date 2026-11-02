@@ -1,0 +1,109 @@
+:root {
+  --color-income: #34D399;
+  --color-expense: #FB7185;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: grey;
+}
+
+h2 {
+  margin: 5px;
+}
+
+header {
+  margin-left: 10px;
+}
+
+main {
+  padding: 8px
+}
+
+#balance-box {
+  background-color: var(--color-income);
+}
+
+#income-box {
+  background-color: var(--color-income);
+}
+
+#expenses-box {
+  background-color: var(--color-expense);
+}
+
+#transaction-section {
+  display: none;
+  background-color: #494949b1;
+}
+
+#add-transaction {
+  background-color: #494949b1;
+}
+
+#add-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-income);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#cancel-btn {
+  border-radius: 3px;
+  padding: 4px;
+  border: none;
+  background-color: #494949b1;
+  color: white;
+}
+
+.transaction-header {
+  display: flex;
+  align-items: center;
+  gap: 55px;
+  padding: 5px;
+  margin-bottom: 7px;
+}
+
+.transaction-header > h3 {
+  font-weight: 1000;
+  color: white;
+}
+
+.transaction-type {
+  display: flex;
+}
+
+.transaction-type > button {
+  flex: 1;
+  padding: 7px;
+  border: 1px solid #474747b1;
+  cursor: pointer;
+}
+
+#expense-btn {
+  border-radius: 6px 0 0 6px;
+  font-weight: 400;
+}
+
+#income-btn {
+  border-radius: 0 6px 6px 0;
+  font-weight: 400;
+}
+
+.box {
+  margin-inline: auto;
+  max-width: 350px;
+  margin: 5px auto;
+  padding: 7px;
+  border-radius: 4px;
+}

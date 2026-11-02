@@ -3,43 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles\style.css">
-  <script src="scripts\script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
   <title>Personal-Finance-Tracker</title>
 </head>
 <body>
   <main>
-    <header>
+    <header id="head-section">
       <!--logo img here-->
       <h1>FinTrack</h1>
       <p>Take control of your money!</p>
     </header>
-    <section>
-      <div class="box" id="balance">
+    <section id="main-section">
+      <div class="box" id="balance-box">
         <p>Current balance</p>
-        <h2>R$0,00</h2>
-        <!--Button to see or dont the current value-->
+        <h2 id="balance">R$ 0,00</h2>
       </div>
-        
-      <div class="box" id="income">
-        <p>Incomes</p> 
-        <h2>R$0,00</h2>
+    
+      <div class="box" id="income-box">
+        <p>Incomes</p>
+        <h2 id="income">R$ 0,00</h2>
       </div>
-      
-      <div class="box" id="expenses">
+    
+      <div class="box" id="expenses-box">
         <p>Expenses</p>
-        <h2>R$0,00</h2>
+        <h2 id="expense">R$ 0,00</h2>
       </div>
-      
       <div class="box" id="add-transaction">
-        <h2><button class="add-btn">+</button>  Add new transaction</h2>
+        <h2><button id="add-btn">+</button>  Add new transaction</h2>
         
         <p>Add a income or expense</p>
       </div>
     </section>
-    <section>
+    
+    <section class="box" id="transaction-section">
+      <div class="transaction-header">
+        <button id="cancel-btn">Cancel</button>
+        <h3>Add Transaction</h3>
+      </div>
+      <div class="transaction-type">
+        <button id="expense-btn">Expense</button>
+        <button id="income-btn">Income</button>
+      </div>
+    </section>
+    
+    <section id="historic-section">
       
     </section>
+    
   </main>
 </body>
 </html>
