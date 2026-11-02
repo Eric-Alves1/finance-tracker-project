@@ -23,7 +23,7 @@ header {
 }
 
 main {
-  padding: 8px
+  padding: 8px;
 }
 
 #balance-box {
@@ -41,6 +41,10 @@ main {
 #transaction-section {
   display: none;
   background-color: #494949b1;
+  max-width: 350px;
+  margin-inline: auto;
+  margin: 5px auto;
+  border-radius: 7px;
 }
 
 #add-transaction {
@@ -70,8 +74,7 @@ main {
   display: flex;
   align-items: center;
   gap: 55px;
-  padding: 5px;
-  margin-bottom: 7px;
+  padding: 12px;
 }
 
 .transaction-header > h3 {
@@ -86,18 +89,76 @@ main {
 .transaction-type > button {
   flex: 1;
   padding: 7px;
-  border: 1px solid #474747b1;
+  border: 1px solid white;
   cursor: pointer;
+  background-color: #494949b1;
+  color: white;
 }
 
 #expense-btn {
   border-radius: 6px 0 0 6px;
   font-weight: 400;
+  margin-left: 7px;
 }
 
 #income-btn {
   border-radius: 0 6px 6px 0;
-  font-weight: 400;
+  font-weight: 600;
+  margin-right: 7px;
+}
+
+.transaction-categorie {
+  height: 500px;
+  margin-top: 8px;
+  background-color: #262626;
+  border-radius: 0 0 7px 7px;
+}
+
+#income-categorie,
+#expense-categorie {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 350px;
+  margin: 10px auto;
+  box-sizing: border-box;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 10px;
+  min-width: 0;
+}
+
+.category-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.category p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+
+#expense-categorie {
+  display: none;
+}
+
+button.active {
+  background-color: white;
+  color: black;
 }
 
 .box {

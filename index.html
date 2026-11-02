@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
   <title>Personal-Finance-Tracker</title>
@@ -36,14 +37,82 @@
       </div>
     </section>
     
-    <section class="box" id="transaction-section">
+    <section id="transaction-section">
       <div class="transaction-header">
         <button id="cancel-btn">Cancel</button>
         <h3>Add Transaction</h3>
       </div>
+      
       <div class="transaction-type">
-        <button id="expense-btn">Expense</button>
-        <button id="income-btn">Income</button>
+        <button id="expense-btn" value="expense">Expense</button>
+        <button id="income-btn" value="income">Income</button>
+      </div>
+      
+      <div class="transaction-categorie">
+        <div id="income-categorie">
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">currency_exchange</span></button>
+            <p>Salary</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">savings</span></button>
+            <p>Investments</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">database</span></button>
+            <p>Others</p>
+          </div>
+
+        </div>
+        
+        <div id="expense-categorie">
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">people</span></button>
+            <p>Social</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">shopping_cart</span></button>
+            <p>Shopping</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">restaurant</span></button>
+            <p>Food</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">directions_run</span></button>
+            <p>Sports</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">featured_seasonal_and_gifts</span></button>
+            <p>Gifts</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">school</span></button>
+            <p>Education</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">directions_bus</span></button>
+            <p>Transport</p>
+          </div>
+          
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">content_cut</span></button>
+            <p>Beauty</p>
+          </div>
+
+          <div class="category">
+            <button class="category-icon"><span class="material-symbols-outlined">database</span></button>
+            <p>Others</p>
+          </div>
+        </div>
       </div>
     </section>
     
