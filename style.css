@@ -18,7 +18,7 @@ h2 {
   margin: 5px;
 }
 
-header {
+#head-section {
   margin-left: 10px;
 }
 
@@ -108,17 +108,16 @@ main {
 }
 
 .transaction-categorie {
-  height: 500px;
+  height: 255px;
   margin-top: 8px;
   background-color: #262626;
-  border-radius: 0 0 7px 7px;
 }
 
 #income-categorie,
 #expense-categorie {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 8px;
   max-width: 350px;
   margin: 10px auto;
   box-sizing: border-box;
@@ -129,13 +128,13 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin: 10px;
+  margin: 6px;
   min-width: 0;
 }
 
 .category-icon {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   flex-shrink: 0;
   border: none;
   border-radius: 50%;
@@ -152,6 +151,11 @@ main {
   color: white;
 }
 
+.category > button {
+  background-color: grey;
+  color: white
+}
+
 #expense-categorie {
   display: none;
 }
@@ -161,10 +165,86 @@ button.active {
   color: black;
 }
 
+button.selected {
+  background-color: #ffdb63;
+  color: white;
+}
+
 .box {
   margin-inline: auto;
   max-width: 350px;
   margin: 5px auto;
   padding: 7px;
   border-radius: 4px;
+}
+
+#input-card {
+  display: flex;
+  width: 100%;
+  max-width: 350px;
+  margin-inline: auto;
+  padding: 10px;
+  background-color: #151515;
+  border-radius: 0 0 7px 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#input-card.hidden {
+  display: none;
+}
+
+#transaction-value {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 400;
+  text-align: right;
+  margin: 0;
+  padding: 4px;
+}
+
+#numpad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+#numpad button {
+  min-width: 0;
+  height: 50px;
+  border: none;
+  border-radius: 9px;
+  background-color: #292929;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#numpad button:hover {
+  background-color: #383838;
+}
+
+#numpad button:active {
+  background-color: #444444;
+  transform: scale(0.97);
+}
+
+#numpad button .material-symbols-outlined {
+  font-size: 34px;
+  vertical-align: middle;
+}
+
+#numpad button[data-action="confirm"] {
+  background-color: #414141;
+}
+
+#numpad button[data-action="confirm"]:hover {
+  background-color: #ffdb63;
+}
+
+#numpad button[data-action="delete"] {
+  color: #ffffff;
 }

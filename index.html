@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
   <link rel="stylesheet" href="style.css">
-  <script src="./utility.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+  <script>
+    eruda.init();
+  </script>
   <script src="./script.js" defer></script>
   <title>Personal-Finance-Tracker</title>
 </head>
@@ -65,7 +68,6 @@
             <button class="category-icon incomeBtn" value="inc-others"><span class="material-symbols-outlined">database</span></button>
             <p>Others</p>
           </div>
-          <button type="submit" id="sendValues">Enviar</button>
         </div>
         
         <div id="expense-categorie">
@@ -112,14 +114,44 @@
           <div class="category">
             <button class="category-icon expenseBtn" value="exp-others"><span class="material-symbols-outlined">database</span></button>
             <p>Others</p>
-          </div>
-          <button type="submit" class="sendValues">Enviar</button>
+          </div>         
+        </div>
+      </div>
+      
+      <div id="input-card" class="hidden">
+          <h2 id="transaction-value">0</h2>
+      
+        <div id="numpad">
+      
+           <button data-value="7">7</button>
+           <button data-value="8">8</button>
+           <button data-value="9">9</button>
+           <button data-action="date">date</button>
+      
+           <button data-value="4">4</button>
+           <button data-value="5">5</button>
+           <button data-value="6">6</button>
+           <button data-action="add">+</button>
+      
+           <button data-value="1">1</button>
+           <button data-value="2">2</button>
+          <button data-value="3">3</button>
+          <button data-action="subtract">−</button>
+      
+          <button data-value=",">,</button>
+          <button data-value="0">0</button>
+      
+          <button data-action="delete"><span class="material-symbols-outlined">backspace</span></button>
+      
+          <button data-action="confirm"><span class="material-symbols-outlined">check</span>
+          </button>
+      
         </div>
       </div>
     </div>
     
+    
     <div id="historic-section">
-      
     </div>
     
   </main>

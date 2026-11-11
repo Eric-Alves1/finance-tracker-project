@@ -19,38 +19,22 @@ const expenseCategoriesDiv = document.querySelector("#expense-categorie");
 const incomeBtnCategories = document.querySelectorAll(".incomeBtn");
 const expenseBtnCategories = document.querySelectorAll(".expenseBtn");
 
-const submitValue = document.querySelector(".sendValues");
+const inputCardDiv = document.querySelector("#input-card");
+const transactionValueTxt = document.querySelector("#transaction-value");
+const numpadDiv = document.querySelector("#numpad");
 
-let transactionType = null;
-let transactionCategorie = null;
-
-let transactions = [];
+//add event delegation with numpadDiv.
 
 function selectType(type) {
   incomeBtn.classList.toggle("active", type === "income");
   expenseBtn.classList.toggle("active", type === "expense");
 }
 
-incomeBtnCategories.forEach(btn => {
-  btn.addEventListener('click', () => {
-    transactionCategorie = btn.value
-  })
-})
-
-expenseBtnCategories.forEach(btn => {
-  btn.addEventListener('click', () => {
-    transactionCategorie = btn.value
-  })
-})
-
-submitValue.addEventListener('click', () => {
-  transactions.push({
-    type: transactionType,
-    categorie: transactionCategorie
-  });
-
-  console.log(transactions)
-})
+function removeClass(nodeList, classe) {
+  for (const node of nodeList) {
+    node.classList.remove(classe);
+  }
+}
 
 addBtn.addEventListener('click', () => {
   headerSection.style.display = "none";
@@ -58,10 +42,32 @@ addBtn.addEventListener('click', () => {
   transactionSection.style.display = "block";
 });
 
+incomeBtnCategories.forEach(btn => {
+  btn.addEventListener('click', () => {
+    removeClass(incomeBtnCategories, "selected");
+    inputCardDiv.classList.remove("hidden");
+    
+    btn.classList.add("selected");
+  })
+})
+
+expenseBtnCategories.forEach(btn => {
+  btn.addEventListener('click', () => {
+    removeClass(expenseBtnCategories, "selected");
+    inputCardDiv.classList.remove("hidden");
+    
+    btn.classList.add("selected");
+  })
+})
+
 cancelBtn.addEventListener('click', () => {
   headerSection.style.display = "block";
   mainSection.style.display = "block";
   transactionSection.style.display = "none";
+  
+  removeClass(expenseBtnCategories, "selected");
+  removeClass(incomeBtnCategories, "selected");
+  inputCardDiv.classList.add("hidden");
 })
 
 incomeBtn.addEventListener("click", () => {
@@ -69,7 +75,8 @@ incomeBtn.addEventListener("click", () => {
   incomeCategoriesDiv.style.display = "grid";
   expenseCategoriesDiv.style.display = "none";
 
-  transactionType = incomeBtn.value;
+  removeClass(expenseBtnCategories, "selected");
+  inputCardDiv.classList.add("hidden");
 })
 
 expenseBtn.addEventListener("click", () => {
@@ -77,7 +84,8 @@ expenseBtn.addEventListener("click", () => {
   expenseCategoriesDiv.style.display = "grid";
   incomeCategoriesDiv.style.display = "none";
 
-  transactionType = expenseBtn.value;
+  removeClass(incomeBtnCategories, "selected");
+  inputCardDiv.classList.add("hidden");
 })
 
 selectType("income");
