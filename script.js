@@ -21,9 +21,10 @@ const expenseBtnCategories = document.querySelectorAll(".expenseBtn");
 
 const inputCardDiv = document.querySelector("#input-card");
 const transactionValueTxt = document.querySelector("#transaction-value");
+const confirmTransactionBtn = document.querySelector("#confirmBtn");
+const removeNumBtn = document.querySelector("#removeBtn");
 const numpadDiv = document.querySelector("#numpad");
 
-//add event delegation with numpadDiv.
 
 function selectType(type) {
   incomeBtn.classList.toggle("active", type === "income");
@@ -86,6 +87,31 @@ expenseBtn.addEventListener("click", () => {
 
   removeClass(incomeBtnCategories, "selected");
   inputCardDiv.classList.add("hidden");
+})
+
+numpadDiv.addEventListener('click', (event) => {
+  const buttonValue = event.target.value;
+  const currentValue = transactionValueTxt.textContent;
+  
+  if (buttonValue === "confirmBtn" || buttonValue === "removeBtn") {
+    return;
+  }
+  
+  if (currentValue === '0') {
+    transactionValueTxt.textContent = buttonValue;
+  } else {
+    transactionValueTxt.textContent += buttonValue;
+  } 
+
+})
+
+removeNumBtn.addEventListener('click', () => {
+  const currentValue = transactionValueTxt.textContent;
+  if (currentValue === "0") {
+    transactionValueTxt.textContent = currentValue;
+  } else {
+    transactionValueTxt.textContent = currentValue.slice(0, -1);
+  }
 })
 
 selectType("income");
