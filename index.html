@@ -9,6 +9,9 @@
   <script>
     eruda.init();
   </script>
+  <script src="./utility.js" defer></script>
+  <script src="./transactionItem.js" defer></script>
+  <script src="./transactionMap.js" defer></script>
   <script src="./script.js" defer></script>
   <title>Personal-Finance-Tracker</title>
 </head>
@@ -119,7 +122,7 @@
       </div>
       
       <div id="input-card" class="hidden">
-          <h2 id="transaction-value">0</h2>
+          <h4 id="transaction-value">0</h4>
       
         <div id="numpad">
       
@@ -141,9 +144,9 @@
           <button value=",">,</button>
           <button value="0">0</button>
       
-          <button id="removeBtn" value="removeBtn"><span class="material-symbols-outlined">backspace</span></button>
+          <button id="removeBtn" value="removeBtn"><span class="material-symbols-outlined" style="pointer-events: none;">backspace</span></button>
       
-          <button value="confirmBtn"><span class="material-symbols-outlined">check</span></button>
+          <button id="confirmBtn" value="confirmBtn"><span class="material-symbols-outlined" style="pointer-events: none;">check</span></button>
       
         </div>
       </div>

@@ -26,16 +26,43 @@ const removeNumBtn = document.querySelector("#removeBtn");
 const numpadDiv = document.querySelector("#numpad");
 
 
-function selectType(type) {
-  incomeBtn.classList.toggle("active", type === "income");
-  expenseBtn.classList.toggle("active", type === "expense");
-}
+class TransactionDOM {
 
-function removeClass(nodeList, classe) {
-  for (const node of nodeList) {
-    node.classList.remove(classe);
+  addTransactionNode(id, item) {
+
+    const transactionDiv = document.createElement('div');
+    transactionDiv.setAttribute("id", id);
+
+    const h3TransactionTxt = document.createElement('h3');
+    h3TransactionTxt.textContent = this.GetTransactionTxt(item);
+
+    const h3TransactionTypeTxt = document.createElement('h3');
+    h3TransactionTypeTxt.textContent = this.GetTypeTxt(item);
+    
+    const h3TransactionCategorieTxt = document.createElement('h3');
+    h3TransactionCategorieTxt.textContent = this.GetCategorieTxt(item);
+
+    transactionDiv.appendChild(h3TransactionTxt);
+    transactionDiv.appendChild(h3TransactionTypeTxt);
+    transactionDiv.appendChild(h3TransactionCategorieTxt);
+    historicSection.appendChild(transactionDiv);
+  }
+
+  GetTransactionTxt(item) {
+    return `R$${item.value}`;
+  }
+
+  GetTypeTxt(item) {
+    return `Type: ${item.type}`;
+  }
+
+  GetCategorieTxt(item) {
+    return `Categorie: ${item.categorie}`;
   }
 }
+
+const transactionMap = new TransactionMap();
+const transactionDom = new TransactionDOM();
 
 addBtn.addEventListener('click', () => {
   headerSection.style.display = "none";
@@ -65,7 +92,8 @@ cancelBtn.addEventListener('click', () => {
   headerSection.style.display = "block";
   mainSection.style.display = "block";
   transactionSection.style.display = "none";
-  
+
+  ResetInput(transactionValueTxt);
   removeClass(expenseBtnCategories, "selected");
   removeClass(incomeBtnCategories, "selected");
   inputCardDiv.classList.add("hidden");
@@ -93,7 +121,7 @@ numpadDiv.addEventListener('click', (event) => {
   const buttonValue = event.target.value;
   const currentValue = transactionValueTxt.textContent;
   
-  if (buttonValue === "confirmBtn" || buttonValue === "removeBtn") {
+  if (buttonValue === "confirmBtn" || buttonValue === "removeBtn" || currentValue.length >= 15) {
     return;
   }
   
@@ -110,8 +138,25 @@ removeNumBtn.addEventListener('click', () => {
   if (currentValue === "0") {
     transactionValueTxt.textContent = currentValue;
   } else {
-    transactionValueTxt.textContent = currentValue.slice(0, -1);
+    transactionValueTxt.textContent = currentValue.slice(0, -1) || "0";
   }
+})
+
+confirmTransactionBtn.addEventListener('click', () => {
+  const value = Number.parseFloat(transactionValueTxt.textContent);
+  const type = GetTypeValue(incomeBtn, expenseBtn);
+  const categorie = GetCategorieValue(incomeBtnCategories, expenseBtnCategories);
+
+  const { id, item } = transactionMap.addTransaction(value, type, categorie);
+  transactionDom.addTransactionNode(id, item);
+  
+  ResetInput(transactionValueTxt);
+  headerSection.style.display = "block";
+  mainSection.style.display = "block";
+  transactionSection.style.display = "none";
+  removeClass(expenseBtnCategories, "selected");
+  removeClass(incomeBtnCategories, "selected");
+  inputCardDiv.classList.add("hidden");
 })
 
 selectType("income");
