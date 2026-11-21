@@ -29,7 +29,7 @@ const numpadDiv = document.querySelector("#numpad");
 class TransactionDOM {
 
   addTransactionNode(id, item) {
-
+    console.log(item.categorie)
     const transactionDiv = document.createElement('div');
     transactionDiv.setAttribute("id", id);
 
@@ -144,9 +144,14 @@ removeNumBtn.addEventListener('click', () => {
 
 confirmTransactionBtn.addEventListener('click', () => {
   const value = Number.parseFloat(transactionValueTxt.textContent);
-  const type = GetTypeValue(incomeBtn, expenseBtn);
-  const categorie = GetCategorieValue(incomeBtnCategories, expenseBtnCategories);
+  const type = GetSelectedType(incomeBtn, expenseBtn);
+  const categorie = GetSelectedCategorie(incomeBtnCategories, expenseBtnCategories);
 
+  if (value === 0) {
+    window.alert('You need to enter a value!');
+    return;
+  }
+  
   const { id, item } = transactionMap.addTransaction(value, type, categorie);
   transactionDom.addTransactionNode(id, item);
   

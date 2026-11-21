@@ -22,6 +22,14 @@ h2 {
   margin-left: 10px;
 }
 
+span {
+  pointer-events: none;
+}
+
+button {
+  cursor: pointer;
+}
+
 main {
   padding: 8px;
 }
@@ -59,7 +67,6 @@ main {
     background-color: var(--color-income);
     color: white;
     font-size: 30px;
-    cursor: pointer;
 }
 
 #cancel-btn {
@@ -90,7 +97,6 @@ main {
   flex: 1;
   padding: 7px;
   border: 1px solid white;
-  cursor: pointer;
   background-color: #494949b1;
   color: white;
 }
@@ -141,7 +147,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
 .category p {
@@ -219,7 +224,6 @@ button.selected {
   color: #ffffff;
   font-size: 25px;
   font-weight: 400;
-  cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
