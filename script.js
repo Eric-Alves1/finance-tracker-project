@@ -48,6 +48,18 @@ class TransactionDOM {
     historicSection.appendChild(transactionDiv);
   }
 
+  GetBalanceTxt() {
+    return `$${transactionMap.GetCurrentBalance()}`;
+  }
+
+  GetIncomeTxt() {
+    return `$${transactionMap.GetIncomeValue()}`;
+  }
+
+  GetExpenseTxt() {
+    return `$${transactionMap.GetExpenseValue()}`;
+  }
+  
   GetTransactionTxt(item) {
     return `R$${item.value}`;
   }
@@ -154,6 +166,10 @@ confirmTransactionBtn.addEventListener('click', () => {
   
   const { id, item } = transactionMap.addTransaction(value, type, categorie);
   transactionDom.addTransactionNode(id, item);
+
+  balanceTxt.textContent = transactionDom.GetBalanceTxt();
+  incomeTxt.textContent = transactionDom.GetIncomeTxt();
+  expenseTxt.textContent = transactionDom.GetExpenseTxt();
   
   ResetInput(transactionValueTxt);
   headerSection.style.display = "block";
