@@ -21,7 +21,6 @@ function GetSelectedCategorie(...arr) {
   for (const nodeList of arr) {
     for (const node of nodeList) {
       if (node.classList.contains("selected")) {
-        console.log(`${node.value}`)
         return node.value;
       }
     }

@@ -29,7 +29,7 @@ const numpadDiv = document.querySelector("#numpad");
 class TransactionDOM {
 
   addTransactionNode(id, item) {
-    console.log(item.categorie)
+    
     const transactionDiv = document.createElement('div');
     transactionDiv.setAttribute("id", id);
 
